@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Completo | SUSHITL</title>
+    <link rel="icon" href="images/sushitl-logo.jpg" type="image/png">
+    <meta name="description"
+        content="Explora el menú completo de SushiTL. Rolls calientes, clásicos, entradas, bombas, dogosushis y bebidas. Cocina fusión Japa-Mex en Zihuatanejo.">
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.min.css">
+
+    <!-- Page-specific styles -->
+    <style>
+        /* ── Menu Page Header ── */
+        .menu-header {
+            padding: 9rem 0 3rem;
+            text-align: center;
+        }
+
+        .menu-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ── Sticky Category Nav ── */
+        .category-nav {
+            position: sticky;
+            top: 5rem;
+            z-index: 100;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .category-nav-inner {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--pill-radius);
+            padding: 0.5rem;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .category-link {
+            padding: 0.55rem 1.25rem;
+            font-family: var(--font-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: var(--btn-radius);
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--t-fast);
+            text-decoration: none;
+        }
+
+        .category-link:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .category-link.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* ── Menu Category Section ── */
+        .menu-category {
+            margin-bottom: 4rem;
+            scroll-margin-top: 8rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .category-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .category-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.3rem 0.75rem;
+            border-radius: var(--btn-radius);
+            background: var(--primary-soft);
+            color: var(--primary);
+        }
+
+        /* ── Full Menu Grid ── */
+        .full-menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        /* ── Full Menu Card (compact) ── */
+        .full-menu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            transition: all var(--t-normal) var(--ease);
+        }
+
+        .full-menu-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .full-card-img {
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .full-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--t-slow) var(--ease);
+        }
+
+        .full-menu-card:hover .full-card-img img {
+            transform: scale(1.06);
+        }
+
+        .full-card-img .ph-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--primary-soft);
+            border: 2px solid var(--primary);
+        }
+
+        .full-card-img .ph-dot::after {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            margin: 8px auto;
+        }
+
+        .full-card-body {
+            padding: 1.25rem 1.5rem;
+        }
+
+        .full-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.4rem;
+        }
+
+        .full-card-name {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .full-card-price {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .full-card-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ── Bottom CTA ── */
+        .menu-bottom-cta {
+            text-align: center;
+            padding: 4rem 0 2rem;
+        }
+
+        .menu-bottom-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-bottom-cta p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* CSS DE SUGERENCIA */
+        .text-menu-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .text-menu-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .text-menu-header {
+            display: flex;
+            align-items: flex-end;
+            gap: 1rem;
+            width: 100%;
+        }
+
+        .text-menu-name {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .text-menu-dots {
+            flex-grow: 1;
+            border-bottom: 2px dotted var(--border-hover);
+            position: relative;
+            top: -0.3rem;
+        }
+
+        .text-menu-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .text-menu-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin: 0;
+            padding-right: 4rem;
+            text-wrap: balance;
+            /* Para que no choque con el espacio del precio */
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 992px) {
+            .full-menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .full-menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-header h1 {
+                font-size: 2rem;
+            }
+
+            .category-nav-inner {
+                padding: 0.4rem;
+                gap: 0.35rem;
+            }
+
+            .category-link {
+                font-size: 0.78rem;
+                padding: 0.45rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════
+         NAVBAR (mismo estilo que index.html)
+         ═══════════════════════════════════════════ -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="images/sushitl-logo.webp" alt="Logo de SushiTL" class="logo-sushi">
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Inicio</a>
+                <a href="#" style="color: var(--primary); opacity: 1;">Menú</a>
+                <a href="index.html#nosotros">Nosotros</a>
+                <a href="index.html#contacto">Ubicación</a>
+            </div>
+
+            <div class="nav-cta">
+                <a href="https://wa.me/527551386973" target="_blank" class="btn btn-primary">Ordenar ahora</a>
+            </div>
+
+            <div class="nav-hamburger" id="navHamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ═══════════════════════════════════════════
+         HEADER
+         ═══════════════════════════════════════════ -->
+    <header class="menu-header">
+        <div class="container">
+            <span class="red-line" style="margin: 0 auto 1.5rem;"></span>
+            <h1>Menú completo</h1>
+            <p>Explora todas nuestras combinaciones extraordinarias.</p>
+        </div>
+    </header>
+
+
+    <!-- ═══════════════════════════════════════════
+         STICKY CATEGORY NAV (Pill Bar)
+         ═══════════════════════════════════════════ -->
+    <div class="category-nav">
+        <div class="category-nav-inner">
+            <a href="#monchosos" class="category-link">Monchosos</a>
+            <a href="#dogosushi" class="category-link">DogoSushi</a>
+            <a href="#sushitlovers" class="category-link">Sushitlovers</a>
+            <a href="#tradicionales" class="category-link">Tradicionales</a>
+            <a href="#entradas" class="category-link">Entradas</a>
+            <a href="#calientes" class="category-link">Calientes</a>
+            <a href="#bebidas" class="category-link">Bebidas</a>
+        </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════
+         MENU CONTENT
+         ═══════════════════════════════════════════ -->
+    <main class="container">
+
+        <!-- ── MONCHOSOS ── -->
+        <section class="menu-category" id="monchosos">
+            <div class="category-header">
+                <h2>Monchosos</h2>
+                <span class="category-badge">Los glotones pues</span>
+            </div>
+            <div class="full-menu-grid">
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/538838730_1389402669582736_8795820565300513569_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=1n2DwAE6RdMQ7kNvwEIORCJ&_nc_oc=AdpECbDiKneEfdrBYagpbNr4aVNB1H9LIo_3cEt5IwQP2trQw1PFFDbaIKE_7QneOt8kDeZTU31RzU8osKDy9BSS&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=OPpZRVk0Ja17Z_wTfyEmqw&_nc_ss=7a3a8&oh=00_Af2og7A1vLbFszK4QEmYC6XHbySpsoux8qSKvnfeq-oGqQ&oe=69ECC6C5"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Maddie Roll</h3>
+                            <span class="full-card-price">$219 MXN</span>
+                        </div>
+                        <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                            Tender de pollo crují, tocino y philadelphia. <br>
+                            <span style="font-weight: 600;" class="span-red">XF:</span>
+                            Empanizado, mezcla de quesos flameado, tampico, aguacate, anguila y chipotle.
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fncg1-1.fna.fbcdn.net/v/t39.30808-6/588280954_1470111774845158_2293759752603362332_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=CokSWCojGA0Q7kNvwEV2NV_&_nc_oc=Adp-fwHzfYfYlRABp-9nebe_B2mtNwdqjHKZNTx537u-7OUtJf4gkZV-IYputmg6BkU&_nc_zt=23&_nc_ht=scontent.fncg1-1.fna&_nc_gid=YKB0_8TGBkPseXOStYE4zg&_nc_ss=7a3a8&oh=00_Af1S45WUpkhy5_uX-eG-R5DzFBSVJHM_hcu8PABisit5bA&oe=69ECC8E1"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Carnívoro Roll</h3>
+                            <span class="full-card-price">$239 MXN</span>
+                        </div>
+                        <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                            Philadelphia, aguacate, filete de res y camarón. <br>
+                            <span style="font-weight: 600;" class="span-red">XF:</span>
+                            Empanizado, coronado con queso gratinado, chipotle, trozos de arrachera salteada, aguacate,
+                            ajonjolí y salsa de anguila.
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fncg1-1.fna.fbcdn.net/v/t39.30808-6/490345399_1267697775086560_7566979871146541122_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=KFTDMmsKi7UQ7kNvwGzcfVC&_nc_oc=AdqtWQjqsXViBX0wucP8OHqMIfIP0M8BDFsKWkqbsoSknWLGEjbTPE1qLTa21f-Mugk&_nc_zt=23&_nc_ht=scontent.fncg1-1.fna&_nc_gid=G46P-ckERznp3o7JIgiUiA&_nc_ss=7a3a8&oh=00_Af1Q9YN484AGEHDScOH9ML-9MVd6bWMYtsE93F7bcuqHJg&oe=69ECA330"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Mexican Roll</h3>
+                            <span class="full-card-price">$209 MXN</span>
+                        </div>
+                        <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                            Pastor, piña, aguacate y philadelphia. <br>
+                            <span style="font-weight: 600;" class="span-red">XF:</span>
+                            Empanizado, queso manchego gratinado, laminas de pastor y aguacate.
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fncg1-1.fna.fbcdn.net/v/t39.30808-6/543440483_1395556032300733_1874108144408141852_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=ffykvr5hVgcQ7kNvwElDIAe&_nc_oc=AdqBpRmaQHfavWr0MlFNz8-gh5avmka4Aw8DrT8Z2nKN31hleBxOcSUQbuMxBZeyU4Y&_nc_zt=23&_nc_ht=scontent.fncg1-1.fna&_nc_gid=xGQL8qOY_VotZ5H8B93Hcg&_nc_ss=7a3a8&oh=00_Af2-Y5ji4jH288qQ0u0r5-bfF-2awlg7RNsOc1fU8enFwQ&oe=69ECB007"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Double Cheese Roll</h3>
+                            <span class="full-card-price">$229 MXN</span>
+                        </div>
+                        <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                            Philadelphia, aguacate y arrachera. <br>
+                            <span style="font-weight: 600;" class="span-red">XF:</span>
+                            Empanizado, bañado con abundante salsa de quesos, crujientes de tocino y cebolla frita,
+                            anguila y chipotle.
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/490575458_1267449508444720_1887016366698787422_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_ohc=94fKkqg_-YgQ7kNvwGqTPgO&_nc_oc=AdoQaD2zZ4ZJeTWO0A69pWV8oe6zMoBT6miencbrmyvU1pRSROAp0RPHmvuxLnnJO2W15VVXshvjgrJP1rbSu2rS&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=-u1ot-bM-pKaDdsGkAKv5w&_nc_ss=7a3a8&oh=00_Af3La-wbLOryNWL2YsxUzyiCl1f_DzjDg1QWKkrcgXEOMw&oe=69ECA12E"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Spicy Roll</h3>
+                            <span class="full-card-price">$215 MXN</span>
+                        </div>
+                        <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                            Philadelphia, aguacate y filete de res. <br>
+                            <span style="font-weight: 600;" class="span-red">XF:</span>
+                            Frito en tempura, salsa de anguila y chipotle, camarones capeados picantes y chile quebrado.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── DOGOSUSHI ── -->
+        <section class="menu-category" id="dogosushi">
+            <div class="category-header">
+                <h2>Dogosushi</h2>
+                <span class="category-badge">Otra forma de comerlo</span>
+            </div>
+            <div class="full-menu-grid">
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/491360804_1278825190640485_8432703592560916667_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=_jnROLpP3YkQ7kNvwFoV4Qf&_nc_oc=Ado8JKsVl6VdwpdW2kYOy0j02AihwMGqCwpW3ufeJ4kxPck4hOTMnq4KSzhDRwrB_sS_BYK3H6-wgsBWwXhgqHzH&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=Yu-x3rD0lmGuqX5nOn0y8A&_nc_ss=7a3a8&oh=00_Af3kQ1oyM4OkUYDbVq3wya76nB3WAB6lZ4Vzj_1S-U4Gpg&oe=69ECAC81"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">FISHER</h3>
+                            <span class="full-card-price">$209 MXN</span>
+                        </div>
+                        <p class="menu-card-desc">
+                            Rollo empanizado, cortado por la mitad, relleno de philadelphia y aguacate <br>
+                        </p>
+                        <hr style="width: 10%; border-color: red; margin: 5px 0;">
+                        <p class="menu-card-desc">Pepino, atún y salmón a la oriental, tampico, cranch de cebolla,
+                            aderezo de chipotle, salsa anguila, ajonjolí y cebollín.</p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/528386087_1370410964815240_8073518208755115778_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=A8EXd1alk18Q7kNvwH41EYA&_nc_oc=AdqLeg6TSk5sR8Op8fu3U9r-VitddVByhAGWeswHbGJbhm4xgUT-n6r7kt5awg-KitpT41JX4MrNXWRt4WvhP2JX&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=Ikp5jMZtyNWPtv6f0Q5zGA&_nc_ss=7a3a8&oh=00_Af3v8534RScxgYoyogTniN4GVhlXxjJvUG_wAU75GYIjJA&oe=69ECAE91"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">ATASCADO</h3>
+                            <span class="full-card-price">$229 MXN</span>
+                        </div>
+                        <p class="menu-card-desc">
+                            Rollo empanizado, cortado por la mitad, relleno de philadelphia y aguacate <br>
+                        </p>
+                        <hr style="width: 10%; border-color: red; margin: 5px 0;">
+                        <p class="menu-card-desc">Mezcla de quesos, arrachera, pollo y camarón, kakiage (vegetales
+                            fritos), salseado con anguila y chipotle. Coronado un chile toreado, ajonjolí tostado y
+                            cebollín.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SUSHITLOVERS ── -->
+        <section class="menu-category" id="sushitlovers">
+            <div class="category-header">
+                <h2>Sushitlovers</h2>
+                <span class="category-badge">Especialidades</span>
+            </div>
+            <div class="full-menu-grid">
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/489665104_1264411025415235_1162962476740878489_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=jRazSZNbyx4Q7kNvwGzkb6D&_nc_oc=AdrFzpEsG2c1PH3IraTQJz1Q1nvu1SoWV4arCPEfMk68TLOdvzXazQLACb7Rd5RblewS18bdKUUupqOcSQSo8PJl&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=h6C5JjpOufZ6OKnx2sCKWQ&_nc_ss=7a3a8&oh=00_Af31xyFtqwCbOM-E8sUZVqGe7Tuf7gfJipdVj4TJYASDSw&oe=69ECDBD9"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Sushitl Roll ★</h3>
+                            <span class="full-card-price">$185</span>
+                        </div>
+                        <p class="full-card-desc">
+                            <span class="span-red">XD:</span> Camarones tempura, queso Philadelphia, aguacate y lámina
+                            de queso manchego. <br>
+                            <span class="span-red">XF:</span> Empanizado, tampico y aderezo de chipotle.
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fncg1-1.fna.fbcdn.net/v/t51.75761-15/480895675_18046158764196626_7527384601879910934_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=luFw1rWCDrkQ7kNvwEc5jWk&_nc_oc=Adrsu095jUlPcJzb80ta-05Oa2GZeNyrgfeoqMK8gwhAH1sF591o6s-X0s4gsDMYy1w&_nc_zt=23&_nc_ht=scontent.fncg1-1.fna&_nc_gid=DJrFVA3PcSeiAk-xqCLDAA&_nc_ss=7a3a8&oh=00_Af3zSt3XPonh_MgHOM1LwWA5BRKzLiurQ4SdzqyAkK6dUw&oe=69ECC514"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Beef Roll ★</h3>
+                            <span class="full-card-price">$185</span>
+                        </div>
+                        <p class="full-card-desc">
+                            <span class="span-red">XD:</span> Filete de res, queso Philadelphia y aguacate. <br>
+                            <span class="span-red">XF:</span> Empanizado, gratinado de queso manchego y cremoso de
+                            habanero. 🔥
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/489917970_1265271621995842_8880931409637712440_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_ohc=KKjAHwykVogQ7kNvwHpoOCX&_nc_oc=Adp1PR5rj4fvYczNsFcCrR8FraiMCbotpxN7jj7d1etotj0MP7Ylc7O_YPHVkDwpQLJsQ535d7bNdi2dzF8c-Tkk&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=Lvcp_zhna6o0hPN0qxDVQw&_nc_ss=7a3a8&oh=00_Af3XGibjfQRGCnqV9xcT2-aIWcKLMWNJs4tEggxGDn3QDw&oe=69ECD2C1"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Kraken Roll ★</h3>
+                            <span class="full-card-price">$195</span>
+                        </div>
+                        <p class="full-card-desc">
+                            <span class="span-red">XD:</span> Camarón empanizado, pulpo, queso Philadelphia y aguacate.
+                            <br>
+                            <span class="span-red">XF:</span> Frito en tempura, salsa de anguila y aderezo de chipotle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- CÓDIGO HTML DE SUGERENCIA -->
+            <div class="text-menu-list">
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">California Roll</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$120 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Aguacate, pepino y surimi. <br>
+                        <span class="span-red">XF: </span>Ajonjolí tostado.
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">California Roll Especial</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$135 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Aguacate, pepino, surimi y camarones tempura. <br>
+                        <span class="span-red">XF: </span>Alga nori y ajonjolí tostado.
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Philadelphia Roll</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$159 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Aguacate, pepino y surimi. <br>
+                        <span class="span-red">XF: </span>Queso Philadelphia y ajonjolí tostado.
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Avocado Roll</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$169 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Camarones empanizados, surimi y queso Philadelphia. <br>
+                        <span class="span-red">XF: </span>Láminas de aguacate y ajonjolí tostado.
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Macho Roll ★</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$169 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Camarones tempura, surimi y queso Philadelphia. <br>
+                        <span class="span-red">XF: </span>Láminas de plátano frito y salsa de anguila.
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Cranch Roll</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$169 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Camarones y surimi empanizados, queso Philadelphia y aguacate.
+                        <br>
+                        <span class="span-red">XF: </span>Aderezo de chipotle y ajonjolí tostado. <small><i>(Agrega
+                                cebolla crujiente si lo prefieres)</i></small>
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Monster Roll</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$185 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Camarones empanizados, surimi, queso Philadelphia y aguacate.
+                        <br>
+                        <span class="span-red">XF: </span>Frito en tempura, salsa de anguila y aderezo de chipotle.
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Happy Roll</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$179 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Filete de res, queso Philadelphia y aguacate. <br>
+                        <span class="span-red">XF: </span>Kakiage (verdura frita) y cremoso de habanero. 🔥
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Mar & Tierra Roll</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$179 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Arrachera marinada, camarón, aguacate y chile toreado. <br>
+                        <span class="span-red">XF: </span>Salsa de anguila, aderezo de chipotle y queso manchego
+                        gratinado.
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Rockand Roll</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$179 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <span class="span-red">XD: </span>Queso Philadelphia y aguacate. <br>
+                        <span class="span-red">XF: </span>Empanizado de tocino y cebolla frita triturada, tampico y
+                        camarones roca.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── TRADICIONALES ── -->
+        <section class="menu-category" id="tradicionales">
+            <div class="category-header">
+                <h2>Tradicionales</h2>
+                <span class="category-badge">Los clásicos</span>
+            </div>
+            <div class="full-menu-grid">
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/490790565_1268147735041564_4028312030166948486_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=8IeaQyr5xC8Q7kNvwFpdVxd&_nc_oc=AdqytA-Em0K63A2FZmiV8hd5-nwFUgEx4u20ArRzVpflsYAgTHmYsAO53KG477fIkmkCZMcSWPYPDwFk21Dw9MdN&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=9Xd2XnSsMUl190ukxubxOA&_nc_ss=7a3a8&oh=00_Af3qXJgCExD3lOMY4nm4At8YXI0sbkUTSd-uyUm6T-kgoQ&oe=69ECDD8B"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Mixto Roll ★</h3>
+                            <span class="full-card-price">$170 MXN</span>
+                        </div>
+                        <p class="full-card-desc">
+                            <span class="span-red">XD:</span> Camarón cocido, pepino y surimi. <br>
+                            <span class="span-red">XF:</span> Láminas de aguacate y láminas de salmón.
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/491686301_1268147738374897_1161402892103329440_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=R8erjhpquS0Q7kNvwGFQz6J&_nc_oc=AdrVPRsz8kdjgKRC_zV2v-J1lbqe8-we4LE4NVP5l0HvOEWnjA0Yu03o_6qR2IkuOwZp2scUbrCbTxUcVSFa1eCg&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=BvafAjQWuintQzMP-fVSLA&_nc_ss=7a3a8&oh=00_Af0YiiOg8eD4L6aiydQv4-_BIsG711g_HZS2EHgkvSqJ6w&oe=69ECE22B"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Vaquita Roll</h3>
+                            <span class="full-card-price">$170 MXN</span>
+                        </div>
+                        <p class="full-card-desc">
+                            <span class="span-red">XD:</span> Atún, aguacate y pepino. <br>
+                            <span class="span-red">XF:</span> Empanizado en ajonjolí tostado.
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/616832765_1519319716591030_4494052890155897364_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=Ply_6QqQKE8Q7kNvwHcG0e5&_nc_oc=AdqZXQegcmhTljPkPKq26-IShgrf3fFBph-qvrRnJLVXjAPrmlseOJptt5VdipdSmyG8n8AspceZGx9Zr1BpMbUm&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=7Dj6SkQuPrY55RkRkpVExQ&_nc_ss=7a3a8&oh=00_Af0DevS4m414S7bZdTqG-KsWCv28RktlHWyJY_BXpnXPOQ&oe=69ECB121"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Tuna Roll</h3>
+                            <span class="full-card-price">$170 MXN</span>
+                        </div>
+                        <p class="full-card-desc">
+                            <span class="span-red">XD:</span> Camarón cocido y aguacate. <br>
+                            <span class="span-red">XF:</span> Láminas de atún, crocante de cebolla y salsa de anguila.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── ENTRADAS ── -->
+        <section class="menu-category" id="entradas">
+            <div class="category-header">
+                <h2>Entradas</h2>
+                <span class="category-badge">Pa aguantar</span>
+            </div>
+            <div class="full-menu-grid">
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/481666096_1232767938579544_5784394704050195176_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_ohc=jckEMKa91qkQ7kNvwG6wLDe&_nc_oc=AdqVdlSQApr2VFI3hgDT6zEkvjwCVqkoIfPIs4g6iasSjPHvCDfVf6coiOS25waPn6p6YTdkyB6pJe8loOKI9FeC&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=HcuMakl5ShW9s8K5y2PH0w&_nc_ss=7a3a8&oh=00_Af1QbPdcBGJ8qlzxFmw8eLFpT4QBppurOjf6pZ1kZA1E-A&oe=69ECCDB5"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Kushiages</h3>
+                            <span class="full-card-price">$55 MXN</span>
+                        </div>
+                        <p class="full-card-desc">
+                            Brocheta botanera empanizada, estilo japonés. Rellena de queso crema, acompañada de chipotle
+                            y anguila
+                        </p>
+                        <p><span class="span-red" style="font-weight: 600;">PLÁTANO - MANCHEGO - CAMARÓN</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/657554545_1576715770851424_7192884410417153863_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=zaaAwC4Z20QQ7kNvwGt1XL0&_nc_oc=AdpJ_rG2-_7u7DTF183WSvBx82SiPsAQG1bpp4ue2hLIJUi-c_VEuROQ2duEfa4AaW7pInXXXPFvXao3AWHPcHBo&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=BEZl2bsNV4z3j-K2MByCkg&_nc_ss=7a3a8&oh=00_Af2jlT7IT2fWm3QtS8hsdDPyIka6tbIeIybJSNyh5kgMeA&oe=69EC745F"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Tostaditas</h3>
+                            <span class="full-card-price">$85 MXN</span>
+                        </div>
+                        <p class="full-card-desc">
+                            Tostadita a base de wonton, proteína de tu elección aderezado, cubos de aguacate, coronado
+                            con poro frito y ajonjolí tostado
+                        </p>
+                        <p><span class="span-red" style="font-weight: 600;">ATÚN - CAMARÓN ROCA - PULPO</span></p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/490587693_1267379968451674_1986711699972758935_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=PAeDcPkonyoQ7kNvwFJaau3&_nc_oc=Adr28mf7bDhpcGTuutlllZIbUTYqu_DY-b3dDI7wOKrD0odDJV568PIksCF9DHJmrCjXmCEmEkkUDb_n5i43K1wM&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=l0V00ROWUF85YK1zF_zNmw&_nc_ss=7a3a8&oh=00_Af04W3AO47E5pdRdk_xCBNf8blMGmQ5P7buFWU3Tw7-Aow&oe=69EC5EF4"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Gyozas</h3>
+                            <span class="full-card-price">$129 MXN</span>
+                        </div>
+                        <p class="full-card-desc">
+                            Pequeñas empanaditas japonesas a base de harina suave, rellenas de su elección, cocidas a
+                            vapor y selladas a sartén. Acompañadas de salsa macha.
+                        </p>
+                        <p><span class="span-red" style="font-weight: 600;">CAMARÓN - KIMCHI - POLLO - CERDO</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── Calientes ── -->
+        <section class="menu-category" id="calientes">
+            <div class="category-header">
+                <h2>Calientes</h2>
+                <span class="category-badge">Otras opciones</span>
+            </div>
+            <div class="full-menu-grid">
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/632760699_1539976337858701_5976218282674770363_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=78VWejdrRJkQ7kNvwERyK5f&_nc_oc=AdrRT4j0DYynfu0yHIvgah1iQi8wXNZLaO2F87fzbDATSeqSkW-dNL4BBkMwvg3cS9bXLbJzl6Nrvl_gxwWPyogQ&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=PK-OVPN86QJmQ59fbW445Q&_nc_ss=7a3a8&oh=00_Af3_mwlmZTDqIFIisiczd668umQmoq27wl9QCK8rIKUXqA&oe=69ECBBFE"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Yakimeshi</h3>
+                            <span class="full-card-price">$95 - $160 MXN</span>
+                        </div>
+                        <p class="full-card-desc">Arroz frito con una mezcla de vegetales como: Zanahoria, calabacita y
+                            cebolla. Sazonado con salsas negras y acompañado de proteína de su elección. Coronado con
+                            ajonjolí tostado y cebollín.</p>
+                        <p><span class="span-red" style="font-weight: 600;">VEGETAL - POLLO - RES - CAMARÓN</span></p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/596142377_1485163073340028_7696736718010343540_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=g4ai9UndaL0Q7kNvwElSZZv&_nc_oc=AdqAZvjmW7CyV6En1YwBG2U7kQUBWPSuaAJ8Xn1iE0CV_QVubDw3OBLgzNlVyP9Y_7gC4u49vh-YGWvhW7YjQrFj&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=NlKhhxqVAu4DJDus3DVs-A&_nc_ss=7a3a8&oh=00_Af3K6hgoCN19Wska2Vpp36USwCBXlsra6q5nRe5AcbKXlg&oe=69ECBCAF"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Muff Chicken</h3>
+                            <span class="full-card-price">$185 MXN</span>
+                        </div>
+                        <p class="full-card-desc">Tazón a base de Yakimeshi natural, tampico, queso philadelphia,
+                            laminadas de aguacate, coronado con pollo capeado y bañados sobre nuestra salsa agridulce.
+                        </p>
+                    </div>
+                </div>
+                <div class="full-menu-card">
+                    <div class="full-card-img">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/597240350_1485161216673547_3472691204290879414_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_ohc=wI_3WRzbangQ7kNvwHnydbg&_nc_oc=Adqca60aN372q2c_Dh5WfVHGKLTThOzMfjU0bP_IUQKmzXSEgmpRnMnRbPxLNCKAfJTJp3US6zspOQGoMvnTGgef&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=R4-kEm8aJfSdfEkBaroNwA&_nc_ss=7a3a8&oh=00_Af0z48ewUbcg10-t1yGxbB7EM7bxCJttPbaoAtBtHr8VjQ&oe=69ECCBC2"
+                            alt="">
+                    </div>
+                    <div class="full-card-body">
+                        <div class="full-card-top">
+                            <h3 class="full-card-name">Torre Suprema</h3>
+                            <span class="full-card-price">$185</span>
+                        </div>
+                        <p class="full-card-desc">Timbal base de arroz gohan, cubos de aguacate, arrachera marinada,
+                            camarones salteados, coronado con un nido de kakiage(vegetales fritos), salseado con
+                            chipotle o cremoso de habanero, ajonjolí tostado y cebollín.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-menu-list">
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Bombas</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$125 - $200 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        Bola de arroz gohan empanizada, cortada y rellenada de vegetales como: calabacita, cebolla y
+                        pimientos, con las proteínas de su elección, con una cobertura de queso gratinado y coronado con
+                        ajonjolí tostado.
+                    </p>
+                    <p><span class="span-red" style="text-transform: uppercase;">Natural - res - pollo - camarón -
+                            arrachera - mixta</span></p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Teriyaki Spicy</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$175 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        Base de arrox gohan, vegetales salteados, pollo marinado con especias, bañado en nuestra salsa
+                        teriyaki con un ligero picor, coronado con ajonjolí tostado.
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Panecillo japonés</h3>
+                        <div class="text-menu-dots"></div>
+                        <span class="text-menu-price">$99 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        Pequeño bizcocho de aire, sobre salsa de chocolate. Coronado con betún de queso crema y frutos
+                        rojos.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── BEBIDAS ── -->
+        <section class="menu-category" id="bebidas">
+            <div class="category-header">
+                <h2>Bebidas</h2>
+                <span class="category-badge">¡Juevebes 2x1 Mezcaladas!</span>
+            </div>
+            <div class="text-menu-list">
+
+                <!-- ── SIN ALCOHOL ── -->
+                <h3
+                    style="color: var(--primary); font-size: 1.5rem; margin-top: 1rem; margin-bottom: 0.5rem; text-transform: uppercase;">
+                    Sin Alcohol <small style="font-size: 0.9rem; color: var(--text-muted);">(500ML)</small></h3>
+
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Calpis</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$50 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Calpis de Mango</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$65 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Calpis de Frutos</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$65 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Té Helado <small class="span-red"
+                                style="text-transform: none; font-size: 0.85rem; margin-left: 5px;">Naranja /
+                                Berries</small></h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$60 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Té Helado 1LT <small class="span-red"
+                                style="text-transform: none; font-size: 0.85rem; margin-left: 5px;">Naranja /
+                                Berries</small></h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$80 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Té Helado <small class="span-red"
+                                style="text-transform: none; font-size: 0.85rem; margin-left: 5px;">Fuze Tea</small>
+                        </h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$60 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Naranjada</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$65 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Limonada</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$65 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Limonada Frutos Rojos</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$75 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Refrescos</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$35 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">Coca-cola / Yoli / Manzanita / Agua Mineral</p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Agua Natural</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$30 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Suero</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$50 MXN</span>
+                    </div>
+                </div>
+
+                <!-- ── SODAS ── -->
+                <h3
+                    style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 0.25rem; text-transform: uppercase;">
+                    Sodas <small style="font-size: 0.9rem; color: var(--text-muted);">($89 MXN)</small></h3>
+                <p
+                    style="color: var(--primary); font-weight: 600; font-size: 0.9rem; margin-top: 0; margin-bottom: 1.5rem;">
+                    Bebida mineralizada con jarabe frutal.</p>
+
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Mango</h3>
+                        <div class="text-menu-dots"></div>
+                    </div>
+                    <p class="text-menu-desc">Jarabe de mango, pulpa de mango y menta.</p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Cítricos</h3>
+                        <div class="text-menu-dots"></div>
+                    </div>
+                    <p class="text-menu-desc">Jarabe de cítricos y jugo de cítricos.</p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Espacial</h3>
+                        <div class="text-menu-dots"></div>
+                    </div>
+                    <p class="text-menu-desc">Jarabe de moras, jarabe de fresa y jugo de limón.</p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Maracuyá</h3>
+                        <div class="text-menu-dots"></div>
+                    </div>
+                    <p class="text-menu-desc">Jarabe de maracuyá y pulpa de maracuyá.</p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Frutos Rojos</h3>
+                        <div class="text-menu-dots"></div>
+                    </div>
+                    <p class="text-menu-desc">Jarabe de fresa, jarabe de frambuesa y pulpa de berries.</p>
+                </div>
+
+                <!-- ── CERVEZA ── -->
+                <h3
+                    style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+                    Cerveza</h3>
+
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Corona / Pacífico / Victoria</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$40 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Ultra Michelob / Modelo Especial</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$45 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Michelada</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$60 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Cubana / Lesbiana</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$80 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Preparado</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$45 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name span-red">Tritón 3L</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price span-red"
+                            style="font-weight: 800;">$289 MXN</span>
+                    </div>
+                </div>
+
+                <!-- ── TRAGOS FUERTES ── -->
+                <h3
+                    style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+                    Tragos Fuertes</h3>
+
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Old Parr</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$115 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Tequila Maestro Dobel</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$115 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Tequila José Cuervo</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$90 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Bacardí <small class="span-red"
+                                style="text-transform: none; font-size: 0.85rem; margin-left: 5px;">Cuba Libre</small>
+                        </h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$90 MXN</span>
+                    </div>
+                </div>
+
+                <!-- ── BESOS ── -->
+                <div style="display: flex; flex-wrap: wrap; gap: 3rem; margin-top: 2.5rem;">
+                    <!-- Besos Mezcal -->
+                    <div style="flex: 1; min-width: 250px;">
+                        <h3
+                            style="color: var(--primary); font-size: 1.25rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            Besos de Mezcal</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div class="text-menu-header">
+                                <h3 class="text-menu-name" style="font-size: 1.1rem;">400 Conejos</h3>
+                                <div class="text-menu-dots"></div><span class="text-menu-price">$70 MXN</span>
+                            </div>
+                            <div class="text-menu-header">
+                                <h3 class="text-menu-name" style="font-size: 1.1rem;">Maracuyá</h3>
+                                <div class="text-menu-dots"></div><span class="text-menu-price">$25 MXN</span>
+                            </div>
+                            <div class="text-menu-header">
+                                <h3 class="text-menu-name" style="font-size: 1.1rem;">Jamaica</h3>
+                                <div class="text-menu-dots"></div><span class="text-menu-price">$25 MXN</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Besos Tequila -->
+                    <div style="flex: 1; min-width: 250px;">
+                        <h3
+                            style="color: var(--primary); font-size: 1.25rem; margin-bottom: 1rem; text-transform: uppercase;">
+                            Besos de Tequila</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div class="text-menu-header">
+                                <h3 class="text-menu-name" style="font-size: 1.1rem;">Maestro Dobel</h3>
+                                <div class="text-menu-dots"></div><span class="text-menu-price">$70 MXN</span>
+                            </div>
+                            <div class="text-menu-header">
+                                <h3 class="text-menu-name" style="font-size: 1.1rem;">José Cuervo Plata</h3>
+                                <div class="text-menu-dots"></div><span class="text-menu-price">$45 MXN</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── COCTELERÍA ── -->
+                <h3
+                    style="color: var(--primary); font-size: 1.5rem; margin-top: 3.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+                    Coctelería</h3>
+
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Mezcaladas</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$80 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <small class="span-red" style="text-transform: none; font-size: 0.85rem;">Mango / Tamarindo /
+                            Frutos Rojos / Maracuyá / Jamaica</small>
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Gin Tonic Tradicional</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$130 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Gin Tonic Frutos Rojos</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$140 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Margaritas</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$130 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <small class="span-red" style="text-transform: none; font-size: 0.85rem;">Limón / Fresa /
+                            Mango</small>
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Mojito Tradicional</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$120 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Mojito de Sabor</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$140 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <small class="span-red" style="text-transform: none; font-size: 0.85rem;">Frutos Rojos /
+                            Maracuyá</small>
+                    </p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Calpis Sunset</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$99 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">Calpis de mango, fresas, granadina, vodka.</p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Strongbow <small
+                                style="text-transform: none; font-size: 0.85rem; font-style: italic; font-weight: normal; margin-left: 5px;">Sidra
+                                mineralizada</small></h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$70 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">Gold Apple / Red Berries / Honey / Rosé Apple</p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Clericot</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$110 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Sangría</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$99 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Paloma</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$99 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">Tequila, limón, jugo de toronja, sal.</p>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Aperol Spritz</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$135 MXN</span>
+                    </div>
+                </div>
+
+                <!-- ── VINOS ── -->
+                <h3
+                    style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+                    Vinos</h3>
+
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">La Redonda <small class="span-red"
+                                style="text-transform: none; font-size: 0.85rem; margin-left: 5px;">Tinto (Copa
+                                150ml)</small></h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$95 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">LA Cetto - Z <small class="span-red"
+                                style="text-transform: none; font-size: 0.85rem; margin-left: 5px;">Blanco (Copa
+                                150ml)</small></h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$85 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Riunite Lambrusco</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$85 MXN</span>
+                    </div>
+                    <p class="text-menu-desc">
+                        <small class="span-red" style="text-transform: none; font-size: 0.85rem;">Tinto (Copa
+                            150ml)</small>
+                    </p>
+                </div>
+
+                <!-- ── ORIENTALES ── -->
+                <h3
+                    style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
+                    Orientales</h3>
+
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Jinro</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$90 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Chupa Chups</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$45 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Felice Soda</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$50 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Ramune</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$60 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Sparkling Soda</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$65 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Bubble Tea</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$45 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Cerveza Lucky Buddha</h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price">$120 MXN</span>
+                    </div>
+                </div>
+                <div class="text-menu-item">
+                    <div class="text-menu-header">
+                        <h3 class="text-menu-name">Sake <small class="span-red"
+                                style="text-transform: none; font-size: 0.85rem; margin-left: 5px;">40 ML</small></h3>
+                        <div class="text-menu-dots"></div><span class="text-menu-price"
+                            style="font-size: 0.9rem; font-weight: normal; font-style: italic;">Pregunta por
+                            otros...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- ═══════════════════════════════════════════
+         CTA FINAL
+         ═══════════════════════════════════════════ -->
+    <section class="menu-bottom-cta">
+        <div class="container">
+            <div class="island" style="padding: 4rem 2rem; text-align: center;">
+                <h2>¿Hambre de algo extraordinario?</h2>
+                <p>Haz tu pedido por WhatsApp o visítanos en Zihuatanejo.</p>
+
+                <a href="https://wa.me/527551386973" target="_blank" class="btn btn-primary"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="icon-whatsapp">
+                        <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                        <path
+                            d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                    </svg> Ordenar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         FOOTER (mismo que index.html)
+         ═══════════════════════════════════════════ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <img src="images/sushitl-logo.webp" alt="">
+                </div>
+
+                <span class="footer-copy">© 2025 SUSHITL · Cocina Fusión Japa-Mex</span>
+
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/SUSHITL.ZIHUATANEJO/" target="_blank" title="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon-facebook">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/sushitl.zih/" target="_blank" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon-instagram">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ═══════════════════════════════════════════
+         JAVASCRIPT
+         ═══════════════════════════════════════════ -->
+    <script>
+        // ── Navbar scroll ──
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ── Mobile hamburger ──
+        const hamburger = document.getElementById('navHamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ── Active category link on scroll ──
+        const categoryLinks = document.querySelectorAll('.category-link');
+        const sections = document.querySelectorAll('.menu-category');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-30% 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    categoryLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+
+</body>
+
+</html>

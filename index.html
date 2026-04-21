@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUSHITL | Tradicional no, Extraordinario</title>
+    <link rel="icon" href="images/sushitl-logo.jpg" type="image/png">
+    <meta name="description"
+        content="SushiTL — Cocina Fusión Japa-Mex en Ixtapa · Zihuatanejo. Tradicional no, extraordinario. Rollos únicos, ambiente con actitud y sabor que rompe esquemas.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+
+    <!-- Icons (Lucide via CDN — estilo outline limpio) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.min.css">
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════
+         SECCIÓN 1 — NAVEGACIÓN FIJA (Floating Pill)
+         ═══════════════════════════════════════════ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="images/sushitl-logo.webp" alt="Logo de SushiTL" class="logo-sushi">
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#inicio">Inicio</a>
+                <a href="#menu">Menú</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Ubicación</a>
+            </div>
+
+            <div class="nav-cta">
+                <a href="https://wa.me/527551386973" target="_blank" class="btn btn-primary">Ordenar ahora</a>
+            </div>
+
+            <div class="nav-hamburger" id="navHamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- ═══════════════════════════════════════════
+         SECCIÓN 2 — HERO PRINCIPAL
+         ═══════════════════════════════════════════ -->
+    <section class="hero" id="inicio">
+        <div class="container hero-container">
+            <!-- Columna Izquierda: Información -->
+            <div class="hero-content">
+                <div class="hero-logo">
+                    <img src="images/sushitl-logo.webp" alt="Logo de SushiTL">
+                </div>
+                <p class="hero-tagline-sub">Cocina Fusión Japa-Mex</p>
+
+                <h1>Tradicional no,<br>extraordinario.</h1>
+                <p class="hero-location">Ixtapa · Zihuatanejo</p>
+
+                <div class="hero-btns">
+                    <a href="menu.html" class="btn btn-primary">Ver menú completo</a>
+                    <a href="#nosotros" class="btn btn-ghost">Nuestra historia</a>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Visual Protagonista -->
+            <div class="hero-visual">
+                <img src="images/descarga (1) (1).webp" alt="Pieza de Sushi SushiTL" class="hero-main-img">
+            </div>
+        </div>
+
+        <!-- Decoración scroll -->
+        <div class="hero-scroll">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         SECCIÓN 3 — PROPUESTA DE VALOR / NOSOTROS
+         ═══════════════════════════════════════════ -->
+    <section class="section-spacing" id="nosotros">
+        <div class="container">
+            <div class="island">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <span class="red-line"></span>
+                        <h2>Fusión con identidad propia</h2>
+                        <p>No somos un restaurante de sushi convencional. Somos la mezcla perfecta de lo japonés con lo
+                            mexicano, creando sabores únicos que no encontrarás en ningún otro lugar.</p>
+                        <p>Nuestros rollos y platillos, fueron creados naturalmente por el gusto del chef, y sin seguir
+                            una línea estructural gastronómica. Gracias a eso, ganamos popularidad al tener como
+                            resultado; rollos grandes, estéticos y abundantes. También platillos únicos y deliciosos.
+                        </p>
+                        <p>TODOS NUESTROS ALIMENTOS SON PREPARADOS AL MOMENTO Y ES ELABORADO UNO POR UNO.</p>
+                    </div>
+
+                    <!-- PLACEHOLDER DE IMAGEN — Reemplazar con foto real -->
+                    <div class="img-placeholder" id="img-about">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/488909285_1261597365696601_9047463245509413797_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=b895b5&_nc_ohc=j288w4Dm8j8Q7kNvwFAEn2N&_nc_oc=Adr-n_yNKhBr1cwa4BgNX-9LPPC2iqt2MtTGx2uJZjyz4WB-P-htLuH_4IhL6_fvprG1IUCR7dQPRV7jxufiazBk&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=7O1BqbRXb-C21qXTEwcbvg&_nc_ss=7a3a8&oh=00_Af1lSzBT2AkLTJF55dZ5pf234eXpmf8d72IYXFbyvSBJcA&oe=69EC7AC1"
+                            alt="Foto del interior de lugar">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         SECCIÓN 4 — MENÚ DESTACADO
+         ═══════════════════════════════════════════ -->
+    <section class="section-spacing" id="menu">
+        <div class="container">
+            <div class="island">
+                <span class="red-line"></span>
+                <h2 class="section-title">Nuestro menú</h2>
+
+                <!-- Tabs de categoría -->
+                <div class="menu-tabs">
+                    <button class="menu-tab active" data-category="especiales">Rolls especiales</button>
+                    <button class="menu-tab" data-category="clasicos">Clásicos</button>
+                    <button class="menu-tab" data-category="entradas">Entradas</button>
+                    <button class="menu-tab" data-category="bebidas">Bebidas</button>
+                </div>
+
+                <!-- Grid de platillos -->
+                <div class="menu-grid" id="menuGrid">
+
+                    <!-- Card 1 — Double Cheese Roll -->
+                    <div class="menu-card" data-category="especiales">
+                        <div class="menu-card-img">
+                            <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/540526323_1395556042300732_8328363149174479813_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_ohc=UUCuMqIdQoIQ7kNvwHUlQF5&_nc_oc=Adr47FfxOa3nIsk9gmMFgqzasvCRX0ozVfVD-gwCmPlXpL87I1YR-zJu-p2eWfHbLpS0tubYmrkVbJ8DWxlq22N6&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=wGWGQAonHroOcv-V3FwlXQ&_nc_ss=7a3a8&oh=00_Af1nj7dkqT46IygThmx-CPEhFl9mWLd_klX8VqLkmdwcKA&oe=69EC69FC"
+                                alt="">
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Double Cheese Roll</h3>
+                            <span class="menu-card-price">$229 MXN</span>
+                            <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                                Philadelphia, aguacate y arrachera. <br>
+                                <span style="font-weight: 600;" class="span-red">XF:</span>
+                                Empanizado, bañado con abundante salsa de quesos, crujientes de tocino y cebolla frita,
+                                anguila y chipotle.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 — Mexican Roll -->
+                    <div class="menu-card" data-category="especiales">
+                        <div class="menu-card-img">
+                            <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/523802828_1389402636249406_4219379159739626044_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=CtJhnJ2GrNwQ7kNvwFtiHzm&_nc_oc=Ado78tTeSIDZXLUwZ9AQ8dxCO96zUX1_dsQJ3-uDCcINPbY_hvE2w-11Zo4yLDR3RcHH5v_jFxO1D9uiylkZcCZr&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=wjVRnpnN-qmLonpI6UIrSg&_nc_ss=7a3a8&oh=00_Af2FSueLe7eCL6HaOLmU8WIL2c3nt99rgUXjwlHLmE5LoQ&oe=69EC814E"
+                                alt="">
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Maddie Roll</h3>
+                            <span class="menu-card-price">$219 MXN</span>
+                            <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                                Tender de pollo crují, tocino y philadelphia. <br>
+                                <span style="font-weight: 600;" class="span-red">XF:</span>
+                                Empanizado, mezcla de quesos flameado, tampico, aguacate, anguila y chipotle.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 — Sushitl Roll -->
+                    <div class="menu-card" data-category="especiales">
+                        <div class="menu-card-img">
+                            <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/561546674_1436857454837257_3097389067008338746_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=PKKvgyGpVHQQ7kNvwFVO32X&_nc_oc=AdpDOObJ7pAHWVuXeuziMd2-mc9EzMa9zBwXL4WwqKbGQ5nwJWM7nWlcDPFVipjd2852vxw8-0h6_H4CS1qDMF0u&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=krl9rfp1JKHWBkgB8FW_pQ&_nc_ss=7a3a8&oh=00_Af3tlQXPiD1dD2gIAmfeuvt7n5izL148DNpJF5q-daAW2g&oe=69EC8676"
+                                alt="">
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Beef Roll</h3>
+                            <span class="menu-card-price">$185 MXN</span>
+                            <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                                Filete de res, philadelphia y aguacate. <br>
+                                <span style="font-weight: 600;" class="span-red">XF:</span>
+                                Empanizado, gratinado de queso manchego, cremoso de habanero.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 — Philadelphia Roll (Clásicos) -->
+                    <div class="menu-card" data-category="clasicos" style="display:none;">
+                        <div class="menu-card-img">
+                            <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/557014695_1421921629664173_5354417396296960469_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_ohc=M07DYJAZya0Q7kNvwEkoaJS&_nc_oc=Ado0bG4xbPPBVE0rC6q3gCMhzCUZf3VZXn6FoalnIlmHTMoXlbcT6MV09F1q-AFsOeSgJIvB2UlZmOpUw9_rY4Kt&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=5YYjxZYN1wIbvnoe6AErRg&_nc_ss=7a3a8&oh=00_Af0TT12CDiBcgMlWd3GB7FiP9PN0k78Kmz2en5VMPus63g&oe=69EC68A9"
+                                alt="">
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Macho Roll</h3>
+                            <span class="menu-card-price">$169 MXN</span>
+                            <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                                Camarones tempura, surimi y philadelphia <br>
+                                <span style="font-weight: 600;" class="span-red">XF:</span>
+                                Laminas de plátano frito y salsa de anguila.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 — Tempura Roll (Clásicos) -->
+                    <div class="menu-card" data-category="clasicos" style="display:none;">
+                        <div class="menu-card-img">
+                            <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/574571363_1454053576450978_3975585918088760446_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=QMqWvP1f7Q8Q7kNvwGgd4eX&_nc_oc=Adq1wDwwXnw9GDzJk-m61cebipkeZw1mWChgTgE7zCy4mPkEqDHPg6GRrf3L-FKNb0C8tMxwn0c7eKEpqMlRR0UK&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=vNafDTb923XmkB7J7mMvaQ&_nc_ss=7a3a8&oh=00_Af26FwPBb4dPlUTrwA9vXXo_SPpgKoU8K50KV5DePkZjpA&oe=69EC626A"
+                                alt="">
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Avocado Roll</h3>
+                            <span class="menu-card-price">$169 MXN</span>
+                            <p class="menu-card-desc"><span style="font-weight: 600;" class="span-red">XD:</span>
+                                Camarones empanizados, surimi y philadelphia <br>
+                                <span style="font-weight: 600;" class="span-red">XF:</span>
+                                Laminas de aguacate y ajonjolí tostado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 7 — Edamames (Entradas) -->
+                    <div class="menu-card" data-category="entradas" style="display:none;">
+                        <div class="menu-card-img">
+                            <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/657554545_1576715770851424_7192884410417153863_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=zaaAwC4Z20QQ7kNvwGt1XL0&_nc_oc=AdpJ_rG2-_7u7DTF183WSvBx82SiPsAQG1bpp4ue2hLIJUi-c_VEuROQ2duEfa4AaW7pInXXXPFvXao3AWHPcHBo&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=BEZl2bsNV4z3j-K2MByCkg&_nc_ss=7a3a8&oh=00_Af2jlT7IT2fWm3QtS8hsdDPyIka6tbIeIybJSNyh5kgMeA&oe=69EC745F"
+                                alt="">
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Tostaditas</h3>
+                            <span class="menu-card-price">$85 MXN</span>
+                            <p class="menu-card-desc">Tostadita a base de wonton, proteína de tu elección aderezado,
+                                cubos de aguacate, coronado con poro frito y ajonjolí tostado.
+                            </p>
+                            <p class="menu-card-desc"><span class="span-red">ATÚN - CAMARÓN ROCA - PULPO</span></p>
+                        </div>
+                    </div>
+
+                    <div class="menu-card" data-category="entradas" style="display:none;">
+                        <div class="menu-card-img">
+                            <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/490587693_1267379968451674_1986711699972758935_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=PAeDcPkonyoQ7kNvwFJaau3&_nc_oc=Adr28mf7bDhpcGTuutlllZIbUTYqu_DY-b3dDI7wOKrD0odDJV568PIksCF9DHJmrCjXmCEmEkkUDb_n5i43K1wM&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=l0V00ROWUF85YK1zF_zNmw&_nc_ss=7a3a8&oh=00_Af04W3AO47E5pdRdk_xCBNf8blMGmQ5P7buFWU3Tw7-Aow&oe=69EC5EF4"
+                                alt="">
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Gyozas</h3>
+                            <span class="menu-card-price">$129 MXN</span>
+                            <p class="menu-card-desc">Pequeñas empanaditas japonesas a base de harina suave, rellenas de
+                                su elección, cocidas a vapor y selladas a sartén. Acompañadas de salsa macha.
+                            </p>
+                            <p class="menu-card-desc"><span class="span-red">CAMARÓN - KIMCHI - POLLO - CERDO</span></p>
+                        </div>
+                    </div>
+
+                    <!-- Card 9 — Mezcalada (Bebidas) -->
+                    <div class="menu-card" data-category="bebidas" style="display:none;">
+                        <div class="menu-card-img">
+                            <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/609180510_1505343841321951_2818492868222442061_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=7b2446&_nc_ohc=tzYf1JUfvmwQ7kNvwFrOGEN&_nc_oc=AdqZPAdEE9J4f6iZjRrZ3nBhRNGagrCP2LNoqyoc8nCZkq6e656tlGYhAoGXsMxmtnbskReKicGbXni0VsdoGOJo&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=UYf-Wz7FQGAaOjPaocj87Q&_nc_ss=7a3a8&oh=00_Af0ZRegW0PC_nccXc-gss0YghAoRDk6i0rVPn1F7zM-8-A&oe=69EC9323"
+                                alt="">
+                        </div>
+                        <div class="menu-card-body">
+                            <h3 class="menu-card-name">Aperol Spritz</h3>
+                            <span class="menu-card-price">$135 MXN</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-cta">
+                    <a href="menu.html" class="btn btn-ghost">Ver menú completo →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+         SECCIÓN 5 — GALERÍA VISUAL
+         ═══════════════════════════════════════════ -->
+    <section class="section-spacing" id="galeria">
+        <div class="container">
+            <div class="island">
+                <span class="red-line"></span>
+                <h2 class="section-title">Cada roll, una experiencia</h2>
+
+                <div class="gallery-grid">
+                    <!-- Item Grande (izquierda) -->
+                    <div class="gallery-item large" id="gallery-1">
+                        <!-- PLACEHOLDER: Foto principal macro de roll con palillos y salsa goteando -->
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/580574814_1461377355718600_2843613885724667035_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_ohc=BiSjCanF7wYQ7kNvwGD2PPX&_nc_oc=AdrKBaTXfxIO1rOy83sti0W013ttQAX3UWQNoTd1hgkyF_UztcPY1gwSGbeCTujt8eW6oSm5pmUxXypJCI053wix&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=8jhRuSya27n6Lqu_nYimzA&_nc_ss=7a3a8&oh=00_Af3TPR7jY4suqP_QKfAPUR-3Z9w1h7ATMKUlxinXxHiDRw&oe=69EC9573"
+                            alt="">
+                        <div class="gallery-overlay"><span>Mejor producto</span></div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="gallery-item" id="gallery-2">
+                        <!-- PLACEHOLDER: Foto de plato completo en mesa oscura -->
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/632871021_1539976424525359_7280901007860494483_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=0BspWyTMum4Q7kNvwErzGRk&_nc_oc=Adp1-K79wQHLo7aOOLyQSrw9w1-Smfx2sx8rEX66JWzwdOOdNFdrMt-uxGDtMi_r4W1IEULwJRnU4E1Kemg-0YhE&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=hXA16NYXFiBdyyxFazqonw&_nc_ss=7a3a8&oh=00_Af36NgHSXmSkuBegOc7Qokl-gX309YRA-Om-hQgyHe3FBg&oe=69EC872E"
+                            alt="">
+                        <div class="gallery-overlay"><span>Plato servido</span></div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="gallery-item" id="gallery-3">
+                        <!-- PLACEHOLDER: Foto del chef preparando -->
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/574570836_1454053569784312_4088708623225959851_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_ohc=_jQuwWzy2BQQ7kNvwHe5SV5&_nc_oc=AdoBWhqi5j5Thf9JRueknI6cvQvnce_VZrfdWiO5FbAIf067QqdOevr-gaZsCWE2y53moHj-4ZGtRAVCB9dNG9sw&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=V4Yzao28C9nUJEqBAhc-wQ&_nc_ss=7a3a8&oh=00_Af1VaNzl9ZAJUOrBKldVjN2gMu0VaOfVJbwKd_h9PjOAgQ&oe=69EC7254"
+                            alt="">
+                        <div class="gallery-overlay"><span>Preparación</span></div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="gallery-item" id="gallery-4">
+                        <!-- PLACEHOLDER: Foto de ensalada/entrada japonesa -->
+                        <img src="https://scontent.fncg1-1.fna.fbcdn.net/v/t39.30808-6/490406394_1272113467978324_7812839161911314140_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_ohc=7zSOhuPcTPIQ7kNvwFLxkW1&_nc_oc=Ado12nkD-K5md2qQsUO7CFZ0voDIiYg7Vk-KyIrFBNOGY8frPHffnS_6uOTxu-1TmfM&_nc_zt=23&_nc_ht=scontent.fncg1-1.fna&_nc_gid=Cpo0G3h10OEF5NM9b9QofA&_nc_ss=7a3a8&oh=00_Af1vhIEhCccPXS4sP4Gu0-TOctUVMa_oOc9XYS-AtBeOew&oe=69EC6155"
+                            alt="">
+                        <div class="gallery-overlay"><span>Entradas</span></div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="gallery-item" id="gallery-5">
+                        <!-- PLACEHOLDER: Foto del local (neón / ambiente nocturno) -->
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/497510512_1293422625847408_6113783587060354869_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=7b2446&_nc_ohc=e7lS0Pun6XcQ7kNvwH1EvaM&_nc_oc=AdqjqU2p7wpAETQgI6kgqpyNOhqxmThb08kGdXqNijFJ3V1Bm6RFVjLkvtXCWI-Q2YDJJo6_tCKSs2MEZUfLp5tI&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=GzglkAxXn1XAG8bjQuqHgg&_nc_ss=7a3a8&oh=00_Af1ixvHSnr3d8K67IdDiA3puLCdgvPiVMVVW3ejq5k5rZQ&oe=69EC6C91"
+                            alt="">
+                        <div class="gallery-overlay"><span>Ambiente</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION CTA - ORDENA AQUI -->
+    <section class="section-spacing">
+        <div class="container">
+            <div class="island cta-banner">
+                <div class="cta-banner-content">
+                    <h2 class="section-title">¿Se te antojó?</h2>
+                    <p>Ordena ahora mismo para recoger o a domicilio, o si lo prefieres, reserva tu mesa y disfruta la
+                        experiencia Japa-Mex en nuestra isla de cristal.</p>
+                </div>
+                <div class="cta-banner-action">
+                    <a href="https://wa.me/527551386973" target="_blank" class="btn btn-primary cta-banner-whatsapp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon-whatsapp">
+                            <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                            <path
+                                d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                        </svg>
+                        Contáctanos por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION 6 - MASCOTA -->
+    <section class="section-spacing" id="mascota">
+        <div class="container">
+            <div class="island">
+                <div class="mascota-grid">
+                    <!-- PLACEHOLDER DE IMAGEN — Reemplazar con foto real -->
+                    <div class="img-placeholder" id="img-mascota">
+                        <img src="https://scontent.fzih1-1.fna.fbcdn.net/v/t39.30808-6/598927546_1493570005832668_8672663399149172513_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_ohc=W15fcniDXTAQ7kNvwFxr3O3&_nc_oc=AdqV5VWGL9g_Zt0OXhoQ9P0eObEqFzX3ZimFlxLqub37gHpehZqvV3-_xmZRgmCRaZs0Um1O_muoL-X4wRPnLPTd&_nc_zt=23&_nc_ht=scontent.fzih1-1.fna&_nc_gid=Cb3FwvlXGXGipKxZNdNhmQ&_nc_ss=7a3a8&oh=00_Af1ErX-EsvX99TV02y8Eck06NOAj5hM8qbU9gORPq7m19w&oe=69EC66E9"
+                            alt="">
+                    </div>
+                    <div class="mascota-text">
+                        <span class="red-line"></span>
+                        <h2>Conoce nuestro espacio</h2>
+                        <p>Visítanos en Ixtapa - Zihuatanejo. Nuestra mascota te da la bienvenida — un <span
+                                class="span-red" style="font-weight: 600;">maneki neko con iguana incluida</span>,
+                            porque aquí somos diferentes.</p>
+                        <p>Te presentamos nuestro nuevo Maneki-neko. El emblemático gato de la suerte que nos acompaña
+                            desde nuestros inicios.</p>
+                        <p>Con un estilo mas costeño, de la costa acompañado de una iguana.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION 7 - VIDEOS -->
+    <section class="section-spacing" id="videos">
+        <div class="container">
+            <div class="island">
+                <div style="text-align: center; margin-bottom: 3.5rem;">
+                    <span class="red-line" style="margin-left: auto; margin-right: auto;"></span>
+                    <h2 class="section-title">SUSHITL en movimiento</h2>
+                    <p class="section-subtitle">Vive la experiencia desde adentro</p>
+                </div>
+                <div class="video-grid">
+                    <div class="video-item island">
+                        <iframe src="https://www.youtube.com/embed/W0Xjdb2YWQU?si=ZS0RaQgnHz6q-3ah"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-item island">
+                        <iframe src="https://www.youtube.com/embed/GTZU9Tnh3_o?si=cCFGqNfFOaOFScrv"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION 8 - UBICACION Y CONTACTO -->
+    <section class="section-spacing" id="contacto">
+        <div class="container">
+            <div class="island">
+                <div style="text-align: center; margin-bottom: 3.5rem;">
+                    <span class="red-line" style="margin: 0 auto 1rem;"></span>
+                    <h2 class="section-title">Encuéntranos</h2>
+                    <p class="section-subtitle">Reservaciones - Pedidos - Visítanos</p>
+                </div>
+
+                <div class="contact-layout">
+                    <div class="contact-panel">
+                        <div class="contact-address-block">
+                            <i class="icon-map-pin contact-panel-icon"></i>
+                            <div>
+                                <strong>Dirección</strong>
+                                <p>Col. Centro C. Ejido #28</p>
+                                <p>Zihuatanejo, Guerrero, México.</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-address-block">
+                            <i class="icon-clock contact-panel-icon"></i>
+                            <div>
+                                <strong>Horario</strong>
+                                <p>Martes – Domingo<br>2:00 pm – 10:00 pm</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-ctas">
+                            <a href="https://wa.me/527551386973" target="_blank" class="contact-cta-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="icon-whatsapp">
+                                    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+                                    <path
+                                        d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+                                </svg>
+                                <span>WhatsApp - <small>755 138 6973</small></span>
+                            </a>
+                            <a href="https://www.instagram.com/sushitl.zih/" target="_blank" class="contact-cta-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="icon-instagram">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                                <span>Instagram - <small>@sushitl.zih</small></span>
+                            </a>
+                            <a href="https://www.facebook.com/SUSHITL.ZIHUATANEJO/" target="_blank"
+                                class="contact-cta-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="icon-facebook">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                                <span>Facebook - <small>SUSHITL</small></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="contact-map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1971.2!2d-101.5577561!3d17.6404369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8434774fcfdcc17d%3A0x140328b078bb4a69!2sSUSHITL%20COCINA%20FUSI%C3%93N%20JAPAMEX!5e0!3m2!1ses-419!2smx!4v1713634000000!5m2!1ses-419!2smx"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <a href="https://www.google.com/maps/place/SUSHITL+COCINA+FUSI%C3%93N+JAPAMEX/@17.640442,-101.560331,790m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8434774fcfdcc17d:0x140328b078bb4a69!8m2!3d17.6404369!4d-101.5577561!16s%2Fg%2F11js2btvky"
+                            target="_blank" class="map-open-btn">
+                            <i class="icon-external-link"></i> Abrir en Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+         SECCIÓN 8 — FOOTER
+         ═══════════════════════════════════════════ -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">
+                    <img src="images/sushitl-logo.webp" alt="">
+                </div>
+
+                <span class="footer-copy">© 2025 SUSHITL · Cocina Fusión Japa-Mex</span>
+
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/SUSHITL.ZIHUATANEJO/" target="_blank" title="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon-facebook">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/sushitl.zih/" target="_blank" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon-instagram">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ═══════════════════════════════════════════
+         JAVASCRIPT
+         ═══════════════════════════════════════════ -->
+    <script>
+        // ── Navbar scroll effect ──
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // ── Mobile hamburger ──
+        const hamburger = document.getElementById('navHamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('open');
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('open');
+            });
+        });
+
+        // ── Menu tabs filtering ──
+        const tabs = document.querySelectorAll('.menu-tab');
+        const cards = document.querySelectorAll('.menu-card');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const category = tab.dataset.category;
+                let visibleCount = 0;
+
+                cards.forEach(card => {
+                    if (card.dataset.category === category) {
+                        card.style.display = '';
+                        visibleCount++;
+                        // Only show first 3
+                        if (visibleCount > 3) card.style.display = 'none';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
