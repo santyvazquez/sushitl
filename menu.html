@@ -9,15 +9,11 @@
     <meta name="description"
         content="Explora el menú completo de SushiTL. Rolls calientes, clásicos, entradas, bombas, dogosushis y bebidas. Cocina fusión Japa-Mex en Zihuatanejo.">
 
-    <!-- Shared CSS -->
     <link rel="stylesheet" href="index.css">
 
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.min.css">
 
-    <!-- Page-specific styles -->
     <style>
-        /* ── Menu Page Header ── */
         .menu-header {
             padding: 9rem 0 3rem;
             text-align: center;
@@ -35,7 +31,6 @@
             font-size: 1rem;
         }
 
-        /* ── Sticky Category Nav ── */
         .category-nav {
             position: sticky;
             top: 5rem;
@@ -83,7 +78,6 @@
             color: var(--white);
         }
 
-        /* ── Menu Category Section ── */
         .menu-category {
             margin-bottom: 4rem;
             scroll-margin-top: 8rem;
@@ -113,14 +107,12 @@
             color: var(--primary);
         }
 
-        /* ── Full Menu Grid ── */
         .full-menu-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1.25rem;
         }
 
-        /* ── Full Menu Card (compact) ── */
         .full-menu-card {
             background: var(--bg-card);
             border: 1px solid var(--border-subtle);
@@ -205,7 +197,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* ── Bottom CTA ── */
         .menu-bottom-cta {
             text-align: center;
             padding: 4rem 0 2rem;
@@ -221,7 +212,6 @@
             margin-bottom: 2rem;
         }
 
-        /* CSS DE SUGERENCIA */
         .text-menu-list {
             display: flex;
             flex-direction: column;
@@ -272,10 +262,8 @@
             margin: 0;
             padding-right: 4rem;
             text-wrap: balance;
-            /* Para que no choque con el espacio del precio */
         }
 
-        /* ── Responsive ── */
         @media (max-width: 992px) {
             .full-menu-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -305,10 +293,6 @@
 </head>
 
 <body>
-
-    <!-- ═══════════════════════════════════════════
-         NAVBAR (mismo estilo que index.html)
-         ═══════════════════════════════════════════ -->
     <nav class="navbar scrolled" id="navbar">
         <div class="nav-inner">
             <a href="index.html" class="nav-logo">
@@ -334,10 +318,6 @@
         </div>
     </nav>
 
-
-    <!-- ═══════════════════════════════════════════
-         HEADER
-         ═══════════════════════════════════════════ -->
     <header class="menu-header">
         <div class="container">
             <span class="red-line" style="margin: 0 auto 1.5rem;"></span>
@@ -346,10 +326,6 @@
         </div>
     </header>
 
-
-    <!-- ═══════════════════════════════════════════
-         STICKY CATEGORY NAV (Pill Bar)
-         ═══════════════════════════════════════════ -->
     <div class="category-nav">
         <div class="category-nav-inner">
             <a href="#monchosos" class="category-link">Monchosos</a>
@@ -362,13 +338,8 @@
         </div>
     </div>
 
-
-    <!-- ═══════════════════════════════════════════
-         MENU CONTENT
-         ═══════════════════════════════════════════ -->
     <main class="container">
 
-        <!-- ── MONCHOSOS ── -->
         <section class="menu-category" id="monchosos">
             <div class="category-header">
                 <h2>Monchosos</h2>
@@ -465,7 +436,6 @@
             </div>
         </section>
 
-        <!-- ── DOGOSUSHI ── -->
         <section class="menu-category" id="dogosushi">
             <div class="category-header">
                 <h2>Dogosushi</h2>
@@ -512,7 +482,6 @@
             </div>
         </section>
 
-        <!-- ── SUSHITLOVERS ── -->
         <section class="menu-category" id="sushitlovers">
             <div class="category-header">
                 <h2>Sushitlovers</h2>
@@ -571,7 +540,6 @@
                     </div>
                 </div>
             </div>
-            <!-- CÓDIGO HTML DE SUGERENCIA -->
             <div class="text-menu-list">
                 <div class="text-menu-item">
                     <div class="text-menu-header">
@@ -691,7 +659,6 @@
             </div>
         </section>
 
-        <!-- ── TRADICIONALES ── -->
         <section class="menu-category" id="tradicionales">
             <div class="category-header">
                 <h2>Tradicionales</h2>
@@ -749,7 +716,6 @@
             </div>
         </section>
 
-        <!-- ── ENTRADAS ── -->
         <section class="menu-category" id="entradas">
             <div class="category-header">
                 <h2>Entradas</h2>
@@ -811,7 +777,6 @@
             </div>
         </section>
 
-        <!-- ── Calientes ── -->
         <section class="menu-category" id="calientes">
             <div class="category-header">
                 <h2>Calientes</h2>
@@ -906,7 +871,6 @@
             </div>
         </section>
 
-        <!-- ── BEBIDAS ── -->
         <section class="menu-category" id="bebidas">
             <div class="category-header">
                 <h2>Bebidas</h2>
@@ -914,7 +878,6 @@
             </div>
             <div class="text-menu-list">
 
-                <!-- ── SIN ALCOHOL ── -->
                 <h3
                     style="color: var(--primary); font-size: 1.5rem; margin-top: 1rem; margin-bottom: 0.5rem; text-transform: uppercase;">
                     Sin Alcohol <small style="font-size: 0.9rem; color: var(--text-muted);">(500ML)</small></h3>
@@ -999,7 +962,6 @@
                     </div>
                 </div>
 
-                <!-- ── SODAS ── -->
                 <h3
                     style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 0.25rem; text-transform: uppercase;">
                     Sodas <small style="font-size: 0.9rem; color: var(--text-muted);">($89 MXN)</small></h3>
@@ -1043,7 +1005,6 @@
                     <p class="text-menu-desc">Jarabe de fresa, jarabe de frambuesa y pulpa de berries.</p>
                 </div>
 
-                <!-- ── CERVEZA ── -->
                 <h3
                     style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
                     Cerveza</h3>
@@ -1086,7 +1047,6 @@
                     </div>
                 </div>
 
-                <!-- ── TRAGOS FUERTES ── -->
                 <h3
                     style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
                     Tragos Fuertes</h3>
@@ -1118,9 +1078,7 @@
                     </div>
                 </div>
 
-                <!-- ── BESOS ── -->
                 <div style="display: flex; flex-wrap: wrap; gap: 3rem; margin-top: 2.5rem;">
-                    <!-- Besos Mezcal -->
                     <div style="flex: 1; min-width: 250px;">
                         <h3
                             style="color: var(--primary); font-size: 1.25rem; margin-bottom: 1rem; text-transform: uppercase;">
@@ -1140,7 +1098,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Besos Tequila -->
                     <div style="flex: 1; min-width: 250px;">
                         <h3
                             style="color: var(--primary); font-size: 1.25rem; margin-bottom: 1rem; text-transform: uppercase;">
@@ -1158,7 +1115,6 @@
                     </div>
                 </div>
 
-                <!-- ── COCTELERÍA ── -->
                 <h3
                     style="color: var(--primary); font-size: 1.5rem; margin-top: 3.5rem; margin-bottom: 1rem; text-transform: uppercase;">
                     Coctelería</h3>
@@ -1253,7 +1209,6 @@
                     </div>
                 </div>
 
-                <!-- ── VINOS ── -->
                 <h3
                     style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
                     Vinos</h3>
@@ -1285,7 +1240,6 @@
                     </p>
                 </div>
 
-                <!-- ── ORIENTALES ── -->
                 <h3
                     style="color: var(--primary); font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">
                     Orientales</h3>
@@ -1346,10 +1300,6 @@
 
     </main>
 
-
-    <!-- ═══════════════════════════════════════════
-         CTA FINAL
-         ═══════════════════════════════════════════ -->
     <section class="menu-bottom-cta">
         <div class="container">
             <div class="island" style="padding: 4rem 2rem; text-align: center;">
@@ -1369,9 +1319,6 @@
     </section>
 
 
-    <!-- ═══════════════════════════════════════════
-         FOOTER (mismo que index.html)
-         ═══════════════════════════════════════════ -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-inner">
@@ -1404,17 +1351,12 @@
     </footer>
 
 
-    <!-- ═══════════════════════════════════════════
-         JAVASCRIPT
-         ═══════════════════════════════════════════ -->
     <script>
-        // ── Navbar scroll ──
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
-        // ── Mobile hamburger ──
         const hamburger = document.getElementById('navHamburger');
         const navLinks = document.getElementById('navLinks');
 
@@ -1430,7 +1372,6 @@
             });
         });
 
-        // ── Active category link on scroll ──
         const categoryLinks = document.querySelectorAll('.category-link');
         const sections = document.querySelectorAll('.menu-category');
 
